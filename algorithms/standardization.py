@@ -5,9 +5,9 @@ import json
 
 
 def standardization(data, columns):
-    df = pd.DataFrame(data)
+    data1 = json.loads(data)
+    df = pd.DataFrame(data1)
     scaler = StandardScaler()
-
     for column in columns:
         if column in df.columns:
             interest_column = np.array(df[column])

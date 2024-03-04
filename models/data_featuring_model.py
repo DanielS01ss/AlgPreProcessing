@@ -1,8 +1,8 @@
-from typing import List
+from typing import List, Dict,Union,Any
 
 from pydantic import BaseModel
 
 
 class DataFeaturing(BaseModel):
-    columns: List
-    data: List
+    columns: List[str]
+    data: Any

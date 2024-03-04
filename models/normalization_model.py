@@ -1,8 +1,8 @@
-from typing import List
+from typing import List, Any
 
 from pydantic import BaseModel
 
 
 class Normalization(BaseModel):
-    columns: List
-    data: List
+    columns: Any
+    data: Any

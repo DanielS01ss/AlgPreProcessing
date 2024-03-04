@@ -18,7 +18,6 @@ def regression_imputation(dataset, target_columns, feature_columns):
         incomplete_data = df[df[target_column].isna()]
         if len(incomplete_data) == 0:
             return df
-        print(incomplete_data)
         # Fit a linear regression model
         model = LinearRegression()
         model.fit(complete_data[feature_columns], complete_data[target_column])

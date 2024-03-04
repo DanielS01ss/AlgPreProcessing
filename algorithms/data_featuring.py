@@ -3,7 +3,10 @@ import json
 
 
 def data_featuring(data, columns):
-    df = pd.DataFrame(data)
+
+    data1 = json.loads(data)
+    df = pd.DataFrame(data1)
+    
     for col in columns:
         if col in df.columns:
             df.drop(columns=[col], inplace=True)

@@ -5,9 +5,9 @@ import numpy as np
 
 
 def normalization(dataset, columns):
-    df = pd.DataFrame(dataset)
+    data1 = json.loads(dataset)
+    df = pd.DataFrame(data1)
     scaler = MinMaxScaler()
-    result_df = dataset
     for column in columns:
         if column in df.columns:
             interest_column = np.array(df[column])
@@ -17,5 +17,5 @@ def normalization(dataset, columns):
             df[column] = normalized_data
 
     parsed_df = json.dumps(df.to_dict(orient='records'))
-
+ 
     return parsed_df
