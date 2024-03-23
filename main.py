@@ -10,6 +10,8 @@ from algorithms.knn_imputation import knn_imputation
 from algorithms.constant_value_imputation import constant_value_imputation
 from algorithms.regression_imputation import regression_imputation
 from models.imputation_model import Imputation
+from fastapi.responses import JSONResponse
+import uvicorn
 import pandas as pd
 import json
 import pandas as pd
@@ -17,6 +19,10 @@ from algorithms.data_featuring import data_featuring
 
 app = FastAPI()
 
+
+@app.get("/hello")
+def tester():
+      return JSONResponse(content={"message": "Hello World!"}, status_code=200)
 
 @app.post("/data-featuring")
 def data_featuring_req(req: DataFeaturing):
@@ -65,3 +71,6 @@ def data_imputation_req(req: Imputation):
 
     dataset = json.dumps(dataset.to_dict(orient='records'))
     return dataset
+
+if __name__ == '__main__':
+    uvicorn.run(app,host='0.0.0.0', port=8001)
